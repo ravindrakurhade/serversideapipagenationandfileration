@@ -1,0 +1,35 @@
+
+form {
+  width: 500px;
+  margin: 20px auto;
+}
+
+
+
+h1 {
+  text-align: center;
+}
+
+label {
+  color: black;
+  font-weight: bold;
+  display: block;
+}
+
+input {
+  border: none;
+  height: 2rem;
+  width: 50%;
+  margin: auto;
+  padding: 0.2rem 1rem;
+  border-radius: 0.25rem;
+
+}
+
+
+.btn_sum {
+  width: 15%;
+  margin-left: 42%;
+  border-radius: 0.25rem;
+}
+
