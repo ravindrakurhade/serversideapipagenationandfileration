@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import UsersInfo from "./UsersInfo";
-import "./UserRegister.css";
-
+// import "./UserRegister.css";
+import { Button, Form } from "react-bootstrap";
+import { InputGroup } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
 const UserRegiser = () => {
   const [user, setUser] = useState({
     name: "",
@@ -67,68 +69,98 @@ const UserRegiser = () => {
     fetchUserInfo();
   }, []);
 
+  // const clearData = () => {
+  //   setShowData(null);
+  // };
+  
+
+
   return (
     <>
-      <h1> User Profile</h1>
+      <Container>
+        <div className="d-flex justify-content-around ">
+          <form method="POST">
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="inputGroup-sizing-default">
+                Name
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Name"
+                type="text"
+                name="name"
+                value={user.name}
+                onChange={handleInputs}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="inputGroup-sizing-default">
+                Email
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Email"
+                id="typeEmail"
+                type="email"
+                name="email"
+                value={user.email}
+                onChange={handleInputs}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="inputGroup-sizing-default">
+                Password
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Password"
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={handleInputs}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="inputGroup-sizing-default">
+                UserName
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Username"
+                type="username"
+                name="username"
+                value={user.username}
+                onChange={handleInputs}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="inputGroup-sizing-default">
+                Mobile No
+              </InputGroup.Text>
+              <Form.Control
+                placeholder="Mobile No"
+                id="typePhone"
+                type="tel"
+                name="mobileNum"
+                value={user.mobileNum}
+                onChange={handleInputs}
+              />
+            </InputGroup>
+            <InputGroup className="mb-3">
+              <Button type="submit" onClick={PostData} variant="outline-dark">
+                Sumbit
+              </Button>
+            </InputGroup>
+          </form>
+        </div>
+      </Container>
+
       <div>
-        <form method="POST">
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={user.name}
-              onChange={handleInputs}
-            />
-          </label>
-          <br /> <br />
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={user.email}
-              onChange={handleInputs}
-            />
-          </label>
-          <br /> <br />
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={user.password}
-              onChange={handleInputs}
-            />
-          </label>
-          <br /> <br />
-          <label>
-            Mobile No:
-            <input
-              type="text"
-              name="mobileNum"
-              value={user.mobileNum}
-              onChange={handleInputs}
-            />
-          </label>
-          <br /> <br />
-          <label>
-            UserName:
-            <input
-              type="text"
-              name="username"
-              value={user.username}
-              onChange={handleInputs}
-            />
-          </label>
-          <br /> <br />
-          <button type="submit" onClick={PostData} className="btn_sum">
-            Sumbit
-          </button>
-        </form>
-      </div>
-      <div>
-        <button onClick={() => setShowData(!isShowData)}>Show User</button>
+        <Button
+          variant="outline-dark"
+          onClick={() => setShowData(!isShowData)}
+        >
+          Show User
+        </Button>
+        {/* <Button className=" btn btn-lg btn-warning ms-100" onClick={clearData}>
+          Clear User
+        </Button> */}
         {isShowData && <UsersInfo userInfo={userInfo} />}
       </div>
     </>

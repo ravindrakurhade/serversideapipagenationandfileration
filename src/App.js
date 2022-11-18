@@ -1,13 +1,20 @@
 import React from 'react'
-import UserRegister from './pages/UserRegiser'
 import './App.css'
+import { Container } from 'react-bootstrap';
+import UserPostData from './pages/UserPostData';
+import UserRegister from "./pages/UserRegiser";
 const App = () => {
+
+
   return (
-    // <div className='App'>
-    <div>
-      <UserRegister/>
-    </div>
-  )
+    <>
+      <Container>
+        <h1> User Profile</h1>
+        {/* <UserRegister /> */}
+        <UserPostData/>
+      </Container>
+    </>
+  );
 }
 
 export default App
